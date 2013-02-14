@@ -20,4 +20,9 @@ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#F9F900))
 
 -moz-box-shadow:2px 2px 10px #06C;/*firefox*/
 -webkit-box-shadow:2px 2px 10px #06C;/*webkit*/
-box-shadow:2px 2px 10px #06C;
+box-shadow:#06C 2px 2px 10px ;
+
+文字阴影
+
+text-shadow::#06C 2px 2px 10px;
+[颜色 x轴 y轴 模糊半径],[颜色 x轴 y轴 模糊半径]...
