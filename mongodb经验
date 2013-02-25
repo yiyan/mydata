@@ -1,0 +1,46 @@
+MongoDB以Windows服务安装(Windows 32-bit)
+
+一.准备工作
+
+1:下载：  http://www.mongodb.org/downloads 选择Windows 32-bit
+
+2:解压到ZIP到 D:\Mongodb   ,在此目录下再建立2个目录  D:\Mongodb\db和D:\Mongodb\logs ，
+
+在D:\Mongodb\logs 新建MongoDB.log文件
+
+二.安装
+
+1.开始--运行--cmd
+
+2.cd D:\Mongodb\bin
+
+3.D:\Mongodb\bin>mongod --logpath D:\MongoDB\logs\MongoDB.log --logappend --dbpath D:\MongoDB\db --directoryperdb --serviceName MongoDB --install
+
+如果安装成功，显示下面文字
+
+all output going to: D:\MongoDB\logs\MongoDB.log
+Creating service MongoDB.
+Service creation successful.
+Service can be started from the command line via 'net start "MongoDB"'.
+
+强调
+
+1：log一定要指定一个xxx.log文件(文件不存在也要这么写，会自动创建，写成这样是不可以的--logpath d:\mongodb\logs)
+
+2:serviceName的N字母要大写
+
+注意：这条命令要到MongoDB的bin目录下运行，刚开始的时候，我就直接在D:\下运行，结果服务的可执行目录为【"D:\mongod" --logpath  "D:\MongoDB\logs\MongoDB.log"  --logappend  --dbpath  "D:\MongoDB\db"  --directoryperdb  --service 】，肯定是不对的。
+
+该命令行指定了日志文件：D:\MongoDB\logs\MongoDB.log，日志是以追加的方式输出的；
+
+数据文件目录：D:\MongoDB\db，并且参数--directoryperdb说明每个DB都会新建一个目录；
+
+Windows服务的名称：MongoDB；
+
+以上的三个参数都是可以根据自己的情况而定的，呵呵。
+
+最后是安装参数：--install，与之相对的是--remove
+
+启动MongoDB：net start MongoDB
+
+停止MongoDB：net stop MongoDB
