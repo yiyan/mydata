@@ -44,3 +44,9 @@ Windows服务的名称：MongoDB；
 启动MongoDB：net start MongoDB
 
 停止MongoDB：net stop MongoDB
+
+-------------------------------------------------------------
+用了 MongodbVUE 发现只能用15天, 后来同事发现删除注册表可以用.
+但每次都有要去删除掉.
+删除这个可以无限期使用
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{B1159E65-821C3-21C5-CE21-34A484D54444}\4FF78130]
