@@ -1,0 +1,18 @@
+$inc 对指定的字段增加值，只能操作数值类型 语法：{ $inc : { field : value } }给field增加value
+
+$set 这个相当于SQL的set操作，指定某个字段的值，可以操作所有类型
+
+$unset  语法：{ $unset : { field : 1} } 删除某一个字段
+$push 语法：{ $push : { field : value } }  如果field存在，那么valuse追加到field，field一定要是一个数组，不存在，那么新增这个field
+
+$pushAll 同上，只是这里可以追加的value是数组
+
+$addToSet 语法：{ $addToSet : { field : value } } 如果field存在，并且value不在其中，那么把value加到数组，如果不存在field，把value赋值给field，这里操作的也是数组
+
+$pop  语法：{ $pop : { field : 1 } }和{ $pop : { field : -1 } } 分别是删除最后一个元素和第一个元素
+
+$pull 语法：$pull : { field : value } } 从field删除等于value的元素
+
+$pullAll 语法：{ $pullAll : { field : value_array } } 意思同$pull,但是可以删除多个值
+
+$rename 语法：{ $rename : { old_field_name : new_field_name } 重命名字段名
