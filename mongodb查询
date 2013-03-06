@@ -1,3 +1,17 @@
+Update有4个参数：第一个selector，第二个newValue，第三个upserts，第四个multipleUpdate
+
+selector和CRD的一样，是个检索选择器，明确查询条件的；
+
+newValue就是要更新的内容了，包含两种基本情况，即有没有$set、$inc、$push这些参数：
+
+情况一、无参数，则newValue替换掉原先selector的内容；
+
+情况二、有参数，则$set是对指定field进行更新newValue；$inc要求指定field为数值，加上newValue值；$push要求指定field为数组，为数组加入newValue项。当然，参数肯定还有很多，这里我们就不再一一介绍了。
+
+upserts是个逻辑值参数，默认为false，即根据selector查询，查到了document，那就执行更新；没查到就啥也不做。那设置为true，意思就很明显了，如果没查到就Create一个新document存放selector和newValue。
+
+multipleUpdate也是个逻辑值参数，默认为false，即根据selector查询，查到了documents，那就执行更新第一条document；设置为true的话，就把所有查到的document都更新。
+
 $inc 对指定的字段增加值，只能操作数值类型 语法：{ $inc : { field : value } }给field增加value
 
 $set 这个相当于SQL的set操作，指定某个字段的值，可以操作所有类型
